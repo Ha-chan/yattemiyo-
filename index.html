@@ -16,12 +16,12 @@
     <a-scene embedded arjs="debugUIEnabled:false; patternRatio: 0.8;">
         <!-- OBJ形式のCGモデルの読み込み -->
         <a-assets>
-            <a-asset-item id="fbx" src="Breakdance.fbx"></a-asset-item> <!-- objファイル -->
+            <a-asset-item id="obj" src="Castle.obj"></a-asset-item> <!-- objファイル -->
         </a-assets>
         <!-- マーカーを登録（プリセットされている「人」マーカー） -->
         <a-marker type='pattern' url='pattern-soukatsu.patt' marker>
             <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
-            <a-entity gltf-model="#fbx"
+            <a-entity gltf-model="#obj"
                 animation="property:rotation; from:0 0 0; to:0 0 0; dur:3000; easing:linear; loop:true;">
             </a-entity>
         </a-marker>
