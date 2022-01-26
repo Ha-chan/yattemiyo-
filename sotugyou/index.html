@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>卒業おめでとう！</title>
+</head>
+
+<body style="margin:0px; overflow:hidden;">
+    <!-- A-Frame ライブラリの読み込み※GIFはV0.9.0で動く -->
+    <script src='https://aframe.io/releases/1.1.0/aframe.min.js'></script>
+    <!-- AR.js ライブラリの読み込み -->
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="shader-grid-glitch.js"></script>
+    
+    <!-- デバッグ用の画面表示、VR用のボタンをそれぞれ非表示に -->
+    <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
+
+        <!-- OBJ形式のCGモデルの読み込み -->
+        <a-assets>
+            <a-asset-item id="kusudama" src="kusudama.gif"></a-asset-item> <!-- objファイル -->
+        </a-assets>
+        <a-assets>
+            <a-asset-item id="kurakka-" src="kurakka-.gif"></a-asset-item> <!-- objファイル -->
+        </a-assets>
+
+        <!-- マーカーを登録（プリセットされている「人」マーカー） -->
+        <a-marker type='pattern' url='pattern-soukatsu.patt' marker>
+        
+            <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
+            <a-entity
+            geometry="primitive: plane;"
+            material="shader:gif; src:#kusudama "
+            rotation="-90 0 0">
+            </a-entity>
+            <a-entity
+            geometry="primitive: plane;"
+            material="shader:gif; src:#kurakka- "
+            rotation="-90 0 0">
+            </a-entity>
+        </a-marker>
+
+        <!-- AR用のカメラを置く -->
+            <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
